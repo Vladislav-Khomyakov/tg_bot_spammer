@@ -15,13 +15,27 @@ cp .env.example .env
 2. Укажите ссылку на чат в `bot/constants.py` (`CHAT_LINK`).
 3. Установите зависимости:
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Запуск
 ```bash
-python3 -m bot.main
+python -m bot.main
 ```
+
+### Запуск в Docker
+1. Собрать образ (через Makefile):
+```bash
+make docker-build IMAGE=tgbot-spammer TAG=latest
+```
+2. Запустить контейнер (передайте токен):
+```bash
+docker run --rm \
+  -e BOT_TOKEN=your_token_here \
+  tgbot-spammer:latest
+```
+
+> Вместо `your_token_here` укажите токен из `@BotFather`. Переменную можно прокинуть и через Docker secrets/compose.
 
 ### Настройки Telegram
 - Добавьте бота в канал администратором с правом публиковать сообщения.
