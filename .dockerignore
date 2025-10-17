@@ -1,0 +1,35 @@
+# VCS
+.git
+.gitignore
+
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Envs
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+ENV/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Python packaging and test artifacts
+build/
+dist/
+.eggs/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+logs/
+*.log
