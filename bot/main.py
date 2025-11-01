@@ -12,7 +12,11 @@ async def main() -> None:
     dp = Dispatcher()
     dp.include_router(router)
 
-    await dp.start_polling(bot)
+    # Ensure polling works even if a webhook was previously set
+    await bot.delete_webhook(drop_pending_updates=True)
+
+    # Poll only for update types used by registered handlers
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
 
 if __name__ == "__main__":
